@@ -16,16 +16,11 @@ const CountryForm = (props) => {
     const classes = getStyles()
     return (
         <Container>
-            <form className={classes.root} noValidate autoComplete="off">
-
-                
-                <TextField id="filled-basic" label="Country" variant="filled" onChange={e => props.onChange(e)}
+            <form className={classes.root} noValidate autoComplete="off" onSubmit={e=> props.onSubmit(e)}>
+                <TextField id="filled-basic" label="Country" variant="filled" onChange={e => props.onChange(e)} 
                     error = {props.error}
                     helperText = {props.errorMessage}
                 />
-                               
-                
-                
                 <Button variant="contained" color="primary" onClick={e=> props.onSubmit(e)}>Search</Button>
             </form>
         </Container>

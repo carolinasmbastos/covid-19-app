@@ -63,8 +63,8 @@ class CountryComponent extends React.Component {
         return (
             <Container style={containerStyle}>
                 <CountryForm onChange={this.handleChange} onSubmit={this.searchCountry} error={this.state.error} errorMessage={this.state.errorMessage}/>
-                {this.state.isLoading && <CircularProgress color="secondary" />}
-                {this.state.timeline && <CountryChart data={this.state.timeline} />}
+                {this.state.isLoading && <CircularProgress color="secondary" style={progressStyle}/>}
+                {this.state.timeline && !this.state.isLoading && <CountryChart data={this.state.timeline} />}
             </Container>
             
         )
@@ -73,6 +73,10 @@ class CountryComponent extends React.Component {
 
 const containerStyle = {
     height : '400px'
-  };
+}
+const progressStyle = {
+    padding : '10%'
+}
+
 
 export default CountryComponent
