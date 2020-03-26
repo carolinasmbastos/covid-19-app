@@ -42,6 +42,11 @@ class CountryComponent extends React.Component {
             })
             .catch(error=>{
                 console.log(error)
+                this.setState({
+                    error : true,
+                    errorMessage : 'No data found for this country',
+                    isLoading : false
+                })
             })
         } else {
             console.log('error no country')
