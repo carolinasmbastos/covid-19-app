@@ -1,11 +1,12 @@
 import React from 'react'
-import CountryForm from './forms/CountryForm'
-import {getCountryTimeline} from '../services/covid-api'
-import CountryChart from './chart/CountryChart'
+import CountryForm from '../forms/CountryForm'
+import {getCountryTimeline} from '../../services/covid-api'
+import CountryChart from '../chart/CountryChart'
+import Country from '../Country'
 import Container from '@material-ui/core/Container'
 import CircularProgress from '@material-ui/core/CircularProgress'
 
-class CountryComponent extends React.Component {
+class CountryContainer extends React.Component {
     state = {
         country : '',
         isLoading : false,
@@ -36,7 +37,8 @@ class CountryComponent extends React.Component {
                         let {confirmed, lastUpdate} = item;
                         lastUpdate = lastUpdate.split('-')[2].substring(0, 2)
                         return {confirmed, lastUpdate}
-                    })
+                    }),
+                    lastStats: result.data.timeline[result.data.timeline.length-1]
                 })
                 console.log(this.state.timeline)
             })
@@ -60,10 +62,13 @@ class CountryComponent extends React.Component {
         
 
     render () {
+
+
         return (
             <Container style={containerStyle}>
                 <CountryForm onChange={this.handleChange} onSubmit={this.searchCountry} error={this.state.error} errorMessage={this.state.errorMessage}/>
                 {this.state.isLoading && <CircularProgress color="secondary" style={progressStyle}/>}
+                {this.state.timeline && !this.state.isLoading && <Country stats={this.state.lastStats} />}
                 {this.state.timeline && !this.state.isLoading && <CountryChart data={this.state.timeline} />}
             </Container>
             
@@ -79,4 +84,4 @@ const progressStyle = {
 }
 
 
-export default CountryComponent
+export default CountryContainer

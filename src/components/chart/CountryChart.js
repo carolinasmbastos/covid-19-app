@@ -24,7 +24,7 @@ const CountryChart = ({ data /* see data tab */ }) => (
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'day',
+            legend: 'days',
             legendPosition: 'middle',
             legendOffset: 32
         }}
@@ -36,6 +36,7 @@ const CountryChart = ({ data /* see data tab */ }) => (
             legendPosition: 'middle',
             legendOffset: -50
         }}
+        enableLabel={false}
         labelSkipWidth={12}
         labelSkipHeight={12}
         labelTextColor={{ from: 'color', modifiers: [ [ 'brighter', 2.6 ] ] }}
