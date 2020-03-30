@@ -46,7 +46,9 @@ class CountryContainer extends React.Component {
           this.setState({
             error: true,
             errorMessage: "No data found for this country",
-            isLoading: false
+            isLoading: false,
+            timeline: null,
+            lastStats: null
           });
         });
     } else {
