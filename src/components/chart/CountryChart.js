@@ -5,7 +5,7 @@ const CountryChart = ({ data /* see data tab */ }) => (
   <ResponsiveBar
     data={data}
     keys={["confirmed"]}
-    indexBy="lastUpdate"
+    indexBy="days"
     margin={{ top: 50, right: 60, bottom: 50, left: 60 }}
     padding={0.3}
     colors="#3f51b5"
@@ -16,7 +16,7 @@ const CountryChart = ({ data /* see data tab */ }) => (
       tickSize: 5,
       tickPadding: 5,
       tickRotation: 0,
-      legend: "days",
+      legend: "number of days since March 1st",
       legendPosition: "middle",
       legendOffset: 32
     }}

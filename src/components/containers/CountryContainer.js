@@ -32,10 +32,11 @@ class CountryContainer extends React.Component {
           ////console.log(result)
           this.setState({
             isLoading: false,
-            timeline: result.data.timeline.map(item => {
-              let { confirmed, lastUpdate } = item;
-              lastUpdate = lastUpdate.split("-")[2].substring(0, 2);
-              return { confirmed, lastUpdate };
+            timeline: result.data.timeline.map((item, i) => {
+              let { confirmed } = item;
+              let days = i;
+              //console.log(days, item)
+              return { confirmed, days };
             }),
             lastStats: result.data.timeline[result.data.timeline.length - 1]
           });
