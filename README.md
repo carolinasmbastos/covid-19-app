@@ -1,6 +1,6 @@
 # covid-19-app
 
-This is a data visualization project to show the latest number on the COVID-19 spread.
+This is a data visualization project to show the latest numbers on the COVID-19 spread.
 
 Enter a country name and view a bar chart with the progression of number of confirmed cases since March 1st, 2020.
 
